@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb4f92db-2d9a-47ce-b15f-23c3a6f18efe" name="Default Changelist" comment="" />
+    <list default="true" id="bb4f92db-2d9a-47ce-b15f-23c3a6f18efe" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/server/github/connector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/github/models.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/github/schema.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/sql/connector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/sql/models.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/sql/schema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/knexfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/knexfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/schema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +21,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/it-efrem/Apollo-Angular.git" />
+      </set>
+    </option>
   </component>
   <component name="ProjectId" id="1Z7mJyUFkrc8B9pqKVbsorqnb4N" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -44,11 +63,28 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1584198438703</updated>
-      <workItem from="1584198440474" duration="232000" />
+      <workItem from="1584198440474" duration="785000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1078" y="275" width="842" height="536" key="find.popup" timestamp="1584199221348">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="1078" y="275" width="842" height="536" key="find.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1584199221348" />
   </component>
 </project>

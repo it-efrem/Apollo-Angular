@@ -1,7 +1,7 @@
-import { merge } from 'lodash';
+import {merge} from 'lodash';
 
-import { schema as gitHubSchema, resolvers as gitHubResolvers } from './github/schema';
-import { schema as sqlSchema, resolvers as sqlResolvers } from './sql/schema';
+import {resolvers as gitHubResolvers, schema as gitHubSchema} from './github/schema';
+import {resolvers as sqlResolvers, schema as sqlSchema} from './sql/schema';
 
 const rootSchema = [`
 # To select the sort order of the feed
@@ -49,65 +49,65 @@ schema {
 `];
 
 const rootResolvers = {
-  Query: {
-    feed(_, { type, after }, context) {
-      return context.Entries.getForFeed(type);
+    Query: {
+        feed(_, {type, after}, context) {
+            return context.Entries.getForFeed(type);
+        },
+        entry(_, {repoFullName}, context) {
+            return context.Entries.getByRepoFullName(repoFullName);
+        },
+        currentUser(_, __, context) {
+            return context.user;
+        },
     },
-    entry(_, { repoFullName }, context) {
-      return context.Entries.getByRepoFullName(repoFullName);
-    },
-    currentUser(_, __, context) {
-      return context.user;
-    },
-  },
-  Mutation: {
-    submitRepository(_, { repoFullName }, context) {
-      if (! context.user) {
-        throw new Error('Must be logged in to submit a repository.');
-      }
+    Mutation: {
+        submitRepository(_, {repoFullName}, context) {
+            if (!context.user) {
+                throw new Error('Must be logged in to submit a repository.');
+            }
 
-      return Promise.resolve()
-        .then(() => {
-          return context.Repositories.getByFullName(repoFullName)
-            .catch(() => {
-              throw new Error(`Couldn't find repository named "${repoFullName}"`);
-            });
-        })
-        .then(() => {
-          return context.Entries.submitRepository(
-            repoFullName,
-            context.user.login
-          )
-        })
-        .then(() => {
-          return context.Entries.getByRepoFullName(repoFullName)
-        });
+            return Promise.resolve()
+                .then(() => {
+                    return context.Repositories.getByFullName(repoFullName)
+                        .catch(() => {
+                            throw new Error(`Couldn't find repository named "${repoFullName}"`);
+                        });
+                })
+                .then(() => {
+                    return context.Entries.submitRepository(
+                        repoFullName,
+                        context.user.login
+                    )
+                })
+                .then(() => {
+                    return context.Entries.getByRepoFullName(repoFullName)
+                });
+        },
+
+        vote(_, {repoFullName, type}, context) {
+            if (!context.user) {
+                throw new Error('Must be logged in to vote.');
+            }
+
+            const voteValue = {
+                UP: 1,
+                DOWN: -1,
+                CANCEL: 0,
+            }[type];
+
+            return context.Entries.voteForEntry(
+                repoFullName,
+                voteValue,
+                context.user.login
+            ).then(() => (
+                context.Entries.getByRepoFullName(repoFullName)
+            ));
+        },
+
+        comment() {
+            throw new Error('Not implemented.');
+        },
     },
-
-    vote(_, { repoFullName, type }, context) {
-      if (! context.user) {
-        throw new Error('Must be logged in to vote.');
-      }
-
-      const voteValue = {
-        UP: 1,
-        DOWN: -1,
-        CANCEL: 0,
-      }[type];
-
-      return context.Entries.voteForEntry(
-        repoFullName,
-        voteValue,
-        context.user.login
-      ).then(() => (
-        context.Entries.getByRepoFullName(repoFullName)
-      ));
-    },
-
-    comment() {
-      throw new Error('Not implemented.');
-    },
-  },
 };
 
 export const schema = [...rootSchema, ...gitHubSchema, ...sqlSchema];

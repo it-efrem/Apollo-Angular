@@ -1,17 +1,30 @@
 import {Component} from '@angular/core';
 
+import {RouterLink} from '@angular/router-deprecated';
+
 @Component({
     selector: 'navigation',
+    directives: [
+        RouterLink
+    ],
     template: `
         <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
-                    <a href="/feed/top" class="navbar-brand">GitRepos</a>
+                    <a [routerLink]="['Index']" class="navbar-brand">GitHunt</a>
                 </div>
 
                 <ul class="nav navbar-nav">
-                    <a title="Top" href="/feed/top">Top</a>
-                    <a title="New" href="/feed/new">New</a>
+                    <li>
+                        <a title="Top" [routerLink]="['Feed', {
+            type: 'top'
+          }]">Top</a>
+                    </li>
+                    <li>
+                        <a title="New" [routerLink]="['Feed', {
+            type: 'new'
+          }]">New</a>
+                    </li>
                 </ul>
 
                 <p class="navbar-text navbar-right">

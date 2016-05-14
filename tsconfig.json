@@ -1,0 +1,21 @@
+{
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "removeComments": false,
+    "sourceMap": true
+  },
+  "exclude": [
+    "api",
+    "migrations",
+    "node_modules",
+    "seeds",
+    "screenshots",
+    "typings"
+  ]
+}

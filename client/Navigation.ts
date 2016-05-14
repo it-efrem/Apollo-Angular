@@ -11,7 +11,7 @@ import {RouterLink} from '@angular/router-deprecated';
         <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
-                    <a [routerLink]="['Index']" class="navbar-brand">GitHunt</a>
+                    <a [routerLink]="['Index']" class="navbar-brand">GitRepos</a>
                 </div>
 
                 <ul class="nav navbar-nav">

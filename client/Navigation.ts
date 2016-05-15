@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
-
-import {RouterLink} from '@angular/router-deprecated';
+import {Router, RouterLink} from '@angular/router-deprecated';
 
 @Component({
     selector: 'navigation',
@@ -11,19 +10,29 @@ import {RouterLink} from '@angular/router-deprecated';
         <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
-                    <a [routerLink]="['Index']" class="navbar-brand">GitRepos</a>
+                    <a [routerLink]="['Feed', { type: 'top' }]" class="navbar-brand">GitRepos</a>
                 </div>
 
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a title="Top" [routerLink]="['Feed', {
-            type: 'top'
-          }]">Top</a>
+                    <li
+                            [class.active]="router.isRouteActive(
+            router.generate(['/Feed', { type: 'top' }])
+          )">
+                        <a
+                                title="Top"
+                                [routerLink]="['Feed', { type: 'top' }]">
+                            Top
+                        </a>
                     </li>
-                    <li>
-                        <a title="New" [routerLink]="['Feed', {
-            type: 'new'
-          }]">New</a>
+                    <li
+                            [class.active]="router.isRouteActive(
+            router.generate(['/Feed', { type: 'new' }])
+          )">
+                        <a
+                                title="New"
+                                [routerLink]="['Feed', { type: 'new' }]">
+                            New
+                        </a>
                     </li>
                 </ul>
 
@@ -35,4 +44,6 @@ import {RouterLink} from '@angular/router-deprecated';
     `
 })
 export class Navigation {
+    constructor(public router: Router) {
+    }
 }

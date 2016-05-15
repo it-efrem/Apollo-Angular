@@ -26,7 +26,7 @@ import './style.css';
     `
 })
 @RouteConfig([
-    {path: '/', as: 'Index', component: Feed},
+    {path: '/', as: 'Index', redirectTo: ['Feed', {type: 'TOP'}]},
     {path: '/feed/:type', as: 'Feed', component: Feed},
     {path: '/submit', as: 'NewEntry', component: NewEntry}
 ])

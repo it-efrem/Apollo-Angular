@@ -1,3 +1,8 @@
+### Depricated ⛔
+Last Angular - [GitHub](https://github.com/angular/angular) or [NPM](https://www.npmjs.com/package/angular)
+
+Last Apollo (GraphQL) - [GitHub](https://github.com/apollographql/apollo-client) or [NPM](https://www.npmjs.com/package/apollo)
+
 # GitHunt for Angular2
 
 A full-stack Apollo Client and Server example app.

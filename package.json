@@ -57,7 +57,7 @@
     "express": "^4.13.4",
     "express-session": "^1.13.0",
     "json-loader": "^0.5.4",
-    "knex": "^0.11.3",
+    "knex": "^0.20.11",
     "lodash": "^4.12.0",
     "node-emoji": "^1.3.0",
     "passport": "^0.3.2",
